@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-bool binary_search(vector<int>& arr, int l, int r, int x)
+bool binarySearch(vector<int>& arr, int l, int r, int x)
 {
     if (l <= r)
     {
@@ -10,9 +10,9 @@ bool binary_search(vector<int>& arr, int l, int r, int x)
         if (x == arr[mid])
             return true;
         else if (x < arr[mid])
-            return binary_search(arr, l, mid-1, x);
+            return binarySearch(arr, l, mid-1, x);
         else
-            return binary_search(arr, mid+1, r, x);
+            return binarySearch(arr, mid+1, r, x);
     }
     return false;
 }
@@ -31,7 +31,7 @@ int main ()
     }
     cout << "Enter element you want to search: ";
     cin >> x;
-    if (binary_search(arr, 0, n-1, x))
+    if (binarySearch(arr, 0, n-1, x))
         cout << "Element Present in Array" << endl;
     else
         cout << "Element is not Present in Array" << endl;
