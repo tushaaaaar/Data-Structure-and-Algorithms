@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 bool binary_search(vector<int>& arr, int l, int r, int x)
