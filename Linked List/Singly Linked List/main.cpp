@@ -27,12 +27,27 @@ public:
 
     void insertAfter(int val, int after)
     {
-
+        Node* newNode = new Node(val);
+        Node* curr = head;
+        if (curr == NULL)
+        {
+            head =  newNode;
+            return;
+        }
+        while (curr->val != after && curr->next != NULL)
+            curr = curr->next;
+        newNode->next = curr->next;
+        curr->next = newNode;
     }
 
     void insertAtEnd(int val)
     {
-
+        Node* newNode = new Node(val);
+        Node* curr = head;
+        while (curr->next != NULL)
+            curr = curr->next;
+        newNode->next = curr->next;
+        curr->next = newNode;
     }
 
     void reverse()
@@ -71,5 +86,16 @@ int main()
     list.display();
 
     list.reverse();
+    list.display();
+
+    list.insertAfter(5, 4);
+    list.insertAfter(2, 5);
+    list.insertAfter(3, 1);
+    list.display();
+
+    list.insertAtEnd(7);
+    list.insertAtEnd(8);
+    list.insertAtEnd(9);
+    
     list.display();
 }
