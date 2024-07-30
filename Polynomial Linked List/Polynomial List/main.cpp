@@ -25,12 +25,20 @@ public:
             return;
         
         Node* poly = new Node(coeff, exp);
-        if (head == NULL)
-            head = poly;
-        else
+        if (head == NULL || head->exp < exp)
         {
             poly->next = head;
             head = poly;
+        }
+        else
+        {
+            Node* current = head;
+            while (current->next != NULL && current->next->exp >= exp)
+            {
+                current = current->next;
+            }
+            poly->next = current->next;
+            current->next = poly;
         }
     }
 
